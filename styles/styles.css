@@ -64,6 +64,13 @@ body {
     color: rgba(255, 255, 255, 0.75);
 }
 
+.header-subtitle h3 {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    color: rgba(245, 225, 235, 0.95);
+}
+
 .prompt-container {
     place-content: flex-end center;
     align-items: center;
@@ -77,12 +84,12 @@ body {
 }
 
 .prompt-box {
-    border-bottom-width: 1px;
-    border-color: rgba(255, 255, 255, 0.1);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-style: solid;
-    border-top-width: 1px;
+    border-bottom-width: 7.7px;
+    border-color: rgba(204, 204, 204, 0.6);
+    border-left-width: 2px;
+    border-right-width: 8px;
+    border-style: dashed;
+    border-top-width: 1.7px;
     place-content: flex-start;
     align-items: flex-start;
     background-color: rgba(255, 255, 255, 0.05);
