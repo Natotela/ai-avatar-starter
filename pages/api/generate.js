@@ -3,7 +3,6 @@ const generateAction = async (req, res) => {
 
   const input = JSON.parse(req.body).input;
 
-  // Add fetch request to Hugging Face
   const response = await fetch(
     `https://api-inference.huggingface.co/models/IC4ness/sd-1-5-ic4`,
     {
@@ -17,6 +16,18 @@ const generateAction = async (req, res) => {
       }),
     }
   );
+
+  // Check for different statuses to send proper payload
+  if (response.ok) {
+    const buffer = await response.arrayBuffer();
+    res.status(200).json({ image: buffer });
+  } else if (response.status === 503) {
+    const json = await response.json();
+    res.status(503).json(json);
+  } else {
+    const json = await response.json();
+    res.status(response.status).json({ error: response.statusText });
+  }
 };
 
 export default generateAction;
